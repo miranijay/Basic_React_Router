@@ -33,7 +33,7 @@ export default function Blog() {
             <ul className="blog-posts-list">
                 {sortedposts.map((posts) => (
                 <li key={posts.id} className="post">
-                    <NavLink to={`/blog/${posts.id}`}>{posts.title}</NavLink>
+                    <NavLink to={`/blog/${posts.id}`}>{posts.title} {posts.requiresPermission && <span>🔒</span>} </NavLink>
                 </li>
                 ))}
             </ul>

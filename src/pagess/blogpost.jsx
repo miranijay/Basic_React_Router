@@ -1,11 +1,13 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { blogPosts } from "../dummydata.jsx";
+import withpermission from "../components/withpermission.jsx";
 
-export default function Blogpost() {
-  const { postid } = useParams()                    // Task 6 - Use route parameters to display blog post details from dummy data. 
+export default withpermission(function Blogpost({postId}) {
+                 // Task 6 - Use route parameters to display blog post details from dummy data. 
   const navigate = useNavigate()
-  const post = blogPosts.find((p) => p.id === parseInt(postid))
+
+  const post = blogPosts.find((p) => p.id === parseInt(postId));
 
   if (!post) {
     return <h2>Blog Post Not Found</h2>
@@ -19,6 +21,5 @@ export default function Blogpost() {
       <button onClick={() => navigate("/blog")}>Back</button>
     </div>
   )
-}
-
+})
 

@@ -26,7 +26,7 @@ export default function App() {
         <Route path='blog' element={<Blog />}/>
         <Route path='blog/authors' element={<Blogauthors />} />
         <Route path='blog/categories' element={<Blogcategories />} /> 
-        <Route path='blog/:postid' element={<Blogpost />} />    
+        <Route path='blog/:postId' element={<Blogpost />} />    
         <Route path='protected' element= {
           <ProtectedRoute isAuthenticated={isAuthenticated}>
             <h1>Protected Route</h1>
