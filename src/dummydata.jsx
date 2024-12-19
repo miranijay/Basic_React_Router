@@ -1,8 +1,32 @@
 export const blogPosts = [
-    { id: 1, title: "Introduction to React", content: "Learn React basics.", requiresPermission: false },
-    { id: 2, title: "React Router Deep Dive", content: "All about React Router.", requiresPermission: false },
-    { id: 3, title: "State Management with Redux", content: "Learn Redux basics.", requiresPermission: false },
-    { id: 4, title: "Advanced React Patterns", content: "Understand advanced patterns.", requiresPermission: true },
-    { id: 5, title: "React HOCs", content: "Higher-Order Components explained.", requiresPermission: true },
-];
+    {
+      id: 1,
+      title: "Introduction to React",
+      content: "This is a blog post about React basics and components.",
+    },
+    {
+      id: 2,
+      title: "Understanding React Router",
+      content: "Learn how to use React Router for navigation in React apps.",
+    },
+    {
+      id: 3,
+      title: "State Management with Redux",
+      content: "Explore state management using Redux in React applications.",
+      adminOnly: true,
+    },
+    {
+      id: 4,
+      title: "React Hooks Deep Dive",
+      content: "A deep dive into React hooks like useState, useEffect, and more.",
+    },
+    {
+      id: 5,
+      title: "Admin-Only Blog Post",
+      content: "This blog post is restricted to admin users.",
+      adminOnly: true, // Restrict access
+    },
+  ];
+  
+
   

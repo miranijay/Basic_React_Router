@@ -1,16 +1,23 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { blogPosts } from "../dummydata.jsx";
-import withpermission from "../components/withpermission.jsx";
+import { useAuth } from "../context/authContext.jsx";
 
-export default withpermission(function Blogpost({postId}) {
+
+export default function Blogpost() {
                  // Task 6 - Use route parameters to display blog post details from dummy data. 
+  const { postId } = useParams()
   const navigate = useNavigate()
+  const { hasPermission } = useAuth()
 
   const post = blogPosts.find((p) => p.id === parseInt(postId));
 
   if (!post) {
     return <h2>Blog Post Not Found</h2>
+  }
+
+  if (post.adminOnly && !hasPermission(post.id)) {
+    return <h2>Access Denied: This post is restricted.</h2>;
   }
 
   return (
@@ -21,5 +28,5 @@ export default withpermission(function Blogpost({postId}) {
       <button onClick={() => navigate("/blog")}>Back</button>
     </div>
   )
-})
+}
 

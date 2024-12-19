@@ -9,16 +9,18 @@ import Blogauthors from './pagess/blogauthors.jsx'
 import Blogcategories from './pagess/blogcategories.jsx'
 import ProtectedRoute from './components/protectedRoute.jsx'
 import Notfound from './components/notfound.jsx'
+import Login from './components/login.jsx'
+import NotAuthorized from './components/notauthorized.jsx'
+import AdminRoute from './components/adminRoute.jsx'
+
 
 export default function App() {
 
   const isAuthenticated = true
 
-
   return (
                                 // Task 4 - Add a dynamic route for individual blog posts (/blog/:postId).
                                 // Task 5 - Create nested routes under /blog for authors (/blog/authors) and categories (/blog/categories). 
-
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<Home/>}/>
@@ -33,6 +35,9 @@ export default function App() {
           </ProtectedRoute>}
         />
         <Route path='*' element={<Notfound />} />
+        <Route path="login" element={<Login />} />
+        <Route path="admin" element={<AdminRoute><h1>Welcome, Admin</h1></AdminRoute>}/>
+        <Route path="not-authorized" element={<NotAuthorized />} />
       </Route>
     </Routes>
     
