@@ -24,20 +24,20 @@ export default function App() {
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<Home/>}/>
-        <Route path='about' element={<About />}/>
-        <Route path='blog' element={<Blog />}/>
-        <Route path='blog/authors' element={<Blogauthors />} />
-        <Route path='blog/categories' element={<Blogcategories />} /> 
-        <Route path='blog/:postId' element={<Blogpost />} />    
-        <Route path='protected' element= {
+        <Route path='/about' element={<About />}/>
+        <Route path='/blog' element={<Blog />}/>
+        <Route path='/blog/authors' element={<Blogauthors />} />
+        <Route path='/blog/categories' element={<Blogcategories />} /> 
+        <Route path='/blog/:postId' element={<Blogpost />} />    
+        <Route path='/protected' element= {
           <ProtectedRoute isAuthenticated={isAuthenticated}>
             <h1>Protected Route</h1>
           </ProtectedRoute>}
         />
-        <Route path='*' element={<Notfound />} />
-        <Route path="login" element={<Login />} />
-        <Route path="admin" element={<AdminRoute><h1>Welcome, Admin</h1></AdminRoute>}/>
-        <Route path="not-authorized" element={<NotAuthorized />} />
+        <Route path='/*' element={<Notfound />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<AdminRoute><h1>Welcome, Admin</h1></AdminRoute>}/>
+        <Route path="/not-authorized" element={<NotAuthorized />} />
       </Route>
     </Routes>
     
