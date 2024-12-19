@@ -3,22 +3,22 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext.jsx";
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const { login } = useAuth();
-  const navigate = useNavigate();
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
+  const { login } = useAuth()
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const result = login(username, password);
+    e.preventDefault()
+    const result = login(username, password)
 
     if (result === "success") {
-      navigate("/");
+      navigate("/")
     } else {
-      setError("Invalid username or password.");
+      setError("Invalid username or password.")
     }
-  };
+  }
 
   return (
     <div>
@@ -63,7 +63,7 @@ function Login() {
             type="submit">Login</button>
       </form>
     </div>
-  );
+  )
 }
 
 export default Login;

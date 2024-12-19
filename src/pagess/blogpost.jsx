@@ -10,14 +10,14 @@ export default function Blogpost() {
   const navigate = useNavigate()
   const { hasPermission } = useAuth()
 
-  const post = blogPosts.find((p) => p.id === parseInt(postId));
+  const post = blogPosts.find((p) => p.id === parseInt(postId))
 
   if (!post) {
     return <h2>Blog Post Not Found</h2>
   }
 
   if (post.adminOnly && !hasPermission(post.id)) {
-    return <h2>Access Denied: This post is restricted.</h2>;
+    return <h2>Access Denied: This post is restricted.</h2>
   }
 
   return (
